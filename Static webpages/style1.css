@@ -1,32 +1,109 @@
 body {
+    margin: 0;
+    padding: 0;
     font-family: Arial, sans-serif;
-    padding: 20px;
+    background: #eef2f3;
 }
 
-h1 {
+.header {
+    background: #2c3e50;
+    color: white;
+    padding: 20px 0;
     text-align: center;
+    font-size: 28px;
 }
 
-.container {
-    margin-top: 20px;
+.content {
+    width: 90%;
+    max-width: 800px;
+    margin: 30px auto;
+}
+
+label {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    border: 2px solid #555;
+    border-radius: 5px;
+}
+
+/* Card layout */
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
     display: flex;
     align-items: center;
-    #border:5px solid red;
+    gap: 15px;
+    min-height: 140px;
+    flex-wrap: wrap;
 }
 
+/* Circle image smaller and responsive */
 .circle-image {
-    width: 180px;
-    height: 180px;
+    width: 80px;       /* smaller width */
+    height: 80px;      /* smaller height */
     border-radius: 50%;
     object-fit: cover;
-    border: 5px solid #555;
-    margin-right: 30px;
+    border: 3px solid #555;
+    animation: rainbow-glow 3s infinite alternate;
 }
 
-.info-box {
-    border: 2px solid black;
-    padding: 15px;
-    width: 400px;
-    min-height: 150px;
-    background: #f9f9f9;
+/* Info text */
+.info-text {
+    font-size: 16px;
+    line-height: 1.5;
+    max-width: 600px;
+    border: 2px solid #555;
+    padding: 12px;
+    border-radius: 10px;
+    animation: rainbow-blink 2s infinite;
+}
+
+/* Glow animations */
+@keyframes rainbow-glow {
+    0% { box-shadow: 0 0 8px #ff3cac; border-color: #ff3cac; }
+    16% { box-shadow: 0 0 8px #ffbd3c; border-color: #ffbd3c; }
+    33% { box-shadow: 0 0 8px #3cff7f; border-color: #3cff7f; }
+    50% { box-shadow: 0 0 8px #3c7fff; border-color: #3c7fff; }
+    66% { box-shadow: 0 0 8px #b23cff; border-color: #b23cff; }
+    83% { box-shadow: 0 0 8px #ff3c7f; border-color: #ff3c7f; }
+    100% { box-shadow: 0 0 8px #ff3cac; border-color: #ff3cac; }
+}
+
+@keyframes rainbow-blink {
+    0%, 50%, 100% { border-color: #ff3cac; box-shadow: 0 0 8px #ff3cac; }
+    14% { border-color: #ffbd3c; box-shadow: 0 0 8px #ffbd3c; }
+    28% { border-color: #3cff7f; box-shadow: 0 0 8px #3cff7f; }
+    42% { border-color: #3c7fff; box-shadow: 0 0 8px #3c7fff; }
+    57% { border-color: #b23cff; box-shadow: 0 0 8px #b23cff; }
+    71% { border-color: #ff3c7f; box-shadow: 0 0 8px #ff3c7f; }
+    85% { border-color: #ff3cac; box-shadow: 0 0 8px #ff3cac; }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .circle-image {
+        width: 60px;
+        height: 60px;
+    }
+
+    .card {
+        flex-direction: column;
+        gap: 10px;
+        min-height: auto;
+    }
+
+    .info-text {
+        max-width: 100%;
+        font-size: 14px;
+    }
 }
